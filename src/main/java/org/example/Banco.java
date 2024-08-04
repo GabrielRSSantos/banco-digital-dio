@@ -1,25 +1,22 @@
 package org.example;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
+@Getter
+@Setter
+@Builder
 public class Banco {
-
 	private String nome;
 	private List<Conta> contas;
 
-	public String getNome() {
-		return nome;
+	public void listarContas()
+	{
+		for(Conta conta : this.getContas()) {
+			System.out.println("-----" + this.getNome() + "-----");
+			conta.imprimirInfosComuns();
+		}
 	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public List<Conta> getContas() {
-		return contas;
-	}
-
-	public void setContas(List<Conta> contas) {
-		this.contas = contas;
-	}
-
 }
